@@ -5,7 +5,7 @@ from cv2 import dnn_superres
 sr = dnn_superres.DnnSuperResImpl_create()
 
 # Read image
-image = cv2.imread('./demosaiced_image.png')
+image = cv2.imread('./geeks.png')
 
 # Read the desired model
 path = "./EDSR_x2.pb"

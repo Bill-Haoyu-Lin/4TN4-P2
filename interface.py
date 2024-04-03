@@ -104,6 +104,6 @@ if not GivenMosaicImg:
 
 # Example usage
 bayer_img = np.array(Image.open(Img_path))
-model = load_trained_model('best_cnn.pth')
+model = load_trained_model('demosaic_cnn.pth')
 rgb_img = demosaic(model, bayer_img)
 Image.fromarray(rgb_img).save('demosaiced_image2.png')

@@ -14,15 +14,19 @@ def calculate_mse_central_region(original_image, demosaiced_image):
     - mse: Mean Squared Error as a float.
     """
     # Calculate the amount to crop from each side of the original image
-    crop_size = 2 # Number of pixels to crop from each side
+    crop_size = 1 # Number of pixels to crop from each side
     
     # Assuming original_image and demosaiced_image are numpy arrays
     # Crop the original image to match the size of the demosaiced image
     cropped_original = original_image[crop_size:-crop_size, crop_size:-crop_size]
+
+    cropped_original = original_image
+    
     print(cropped_original.shape,demosaiced_image.shape)
     # Ensure the cropped original and demosaiced images have the same shape
     if cropped_original.shape != demosaiced_image.shape:
         raise ValueError("Cropped original image and demosaiced image must have the same dimensions.")
+    
     
     # Calculate MSE
     mse = np.mean((cropped_original - demosaiced_image) ** 2)
@@ -45,8 +49,8 @@ def load_image_as_array(image_path):
 # Continue using the load_image_as_array function from the previous example to load images
 
 # Example paths to your images
-original_image_path = './img/test_img_2.png'
-demosaiced_image_path = './demosaiced_image2.png'
+original_image_path = './img/0900x4.png'
+demosaiced_image_path = './geeks.png'
 
 # Load images as numpy arrays
 original_image = load_image_as_array(original_image_path)

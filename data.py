@@ -17,10 +17,10 @@ def rgb_to_bayer(image):
 def extract_patches_and_gt(image, bayer_image):
     patches =[]
     gt_data=[]
-    for i in range(1, bayer_image.shape[0] - 1):
-        for j in range(1, bayer_image.shape[1] - 1):
+    for i in range(2, bayer_image.shape[0] - 2):
+        for j in range(2, bayer_image.shape[1] - 2):
             # Extract a 5x5 patch centered at (i, j)
-            patch = bayer_image[i-1:i+2, j-1:j+2]
+            patch = bayer_image[i-2:i+3, j-2:j+3]
             # change patch to 1x25
             patch = patch.flatten()
             
